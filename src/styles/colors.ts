@@ -1,11 +1,7 @@
 export default {
-  primary: '#EF474D',
-  secondary: '#921515',
-  textRed: '#FF9494',
+  primary: '#22a8f7',
+  caption: '#b4b4b4',
+  avatar: '#d6cfcf',
+  backgroundCard: 'rgba(255, 255, 255, 0.6)',
   white: '#ffffff',
-  black: '#000000',
-  grey: '#aeaeae',
-  yellow: '#fec957',
-  backgroundGrey: '#ecedec',
-  green: '#008800',
 };

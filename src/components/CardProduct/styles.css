@@ -1,0 +1,66 @@
+.MuiCard-root {
+    box-shadow: none !important;
+}
+
+.MuiCardMedia-root {
+    height: 68% !important;
+    background-size: contain !important;
+}
+
+.MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: relative !important;
+    transition: bottom 0.2s;
+    bottom: 0;
+    bottom: 0px !important;
+}
+
+.MuiGrid-item :hover>.MuiCardContent-root {
+    bottom: 150px !important;
+}
+
+.MuiTypography-body1 {
+    margin-bottom: 10px;
+    height: 50px !important;
+}
+
+.MuiTypography-body2 {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    height: 40px;
+}
+
+.MuiTypography-caption {
+    font-size: 14px !important;
+    color: #b4b4b4 !important;
+    height: auto;
+}
+
+.MuiCardActions-root {
+    height: 100px;
+}
+
+.MuiAvatar-rounded {
+    background-color: #d6cfcf;
+    border-radius: 30px !important;
+}
+
+.MuiTextField-root {
+    height: auto !important;
+    margin: 0 10px !important;
+}
+
+.actionAmount {
+    height: auto;
+}
+
+.actionButton {
+    height: 60px;
+}
+
+.MuiButton-containedPrimary {
+    width: 100%;
+    background-color: #22a8f7 !important;
+}

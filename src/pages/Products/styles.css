@@ -1,0 +1,7 @@
+.MuiGrid-item:not(:first-child) {
+    height: 500px !important;
+}
+
+.MuiGrid-spacing-xs-3 {
+    height: auto;
+}
