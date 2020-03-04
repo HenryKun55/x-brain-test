@@ -33,14 +33,14 @@ const Purchased: React.FC<Props> = () => {
 
   return (
     <Box height="100vh">
-      <Container maxWidth="xs">
+      <Container className="ContainerPurchased" maxWidth="xs">
         <Card className="CardPurshased">
           <CardContent className="CardContentPurchased">
             <Typography color="textPrimary" gutterBottom />
             <Typography variant="h5" component="h2">
               {data.name}
             </Typography>
-            <Typography color="textSecondary">
+            <Typography className="CardContainerText" color="textSecondary">
               Sua compra no valor de
               {' '}
               <strong style={{ color: '#22a8f7 ' }}>{formatNumber(data.price)}</strong>

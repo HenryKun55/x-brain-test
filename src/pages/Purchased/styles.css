@@ -2,7 +2,7 @@
     background-color: #ebebeb;
 }
 
-.MuiContainer-maxWidthXs {
+.ContainerPurchased {
     display: flex;
     align-items: center;
     height: 100%;
@@ -17,7 +17,7 @@
     padding: 5px 15px !important;
 }
 
-.MuiTypography-colorTextSecondary {
+.CardContainerText {
     text-align: center;
 }
 
