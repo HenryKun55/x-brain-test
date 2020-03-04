@@ -27,7 +27,7 @@ yarn install
 Vá até a raiz do projeto e execute
 
 ```
-yarn json-server --host <SEU_IP:PORTA> database.json -p 3333
+yarn json-server --host <SEU_IP> database.json -p 3333
 ```
 
 
