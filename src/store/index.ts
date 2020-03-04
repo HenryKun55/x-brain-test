@@ -3,6 +3,7 @@ import { createStore, applyMiddleware, Store } from 'redux';
 
 import { AuthState } from './ducks/auth/types';
 import { ProductState } from './ducks/product/types';
+import { CartState } from './ducks/cart/types';
 
 import reducers from './ducks';
 import rootSaga from './ducks/rootSaga';
@@ -19,6 +20,7 @@ sagaMiddleware.run(rootSaga);
 export interface ApplicationState {
   auth: AuthState;
   product: ProductState;
+  cart: CartState;
 }
 
 export default store;

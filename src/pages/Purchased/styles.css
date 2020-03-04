@@ -1,0 +1,38 @@
+.MuiBox-root-2 {
+    background-color: #ebebeb;
+}
+
+.MuiContainer-maxWidthXs {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.CardPurshased {
+    width: 100%;
+}
+
+.CardContentPurchased {
+    align-items: center;
+    padding: 5px 15px !important;
+}
+
+.MuiTypography-colorTextSecondary {
+    text-align: center;
+}
+
+.CardPurchaseImage {
+    width: 150px;
+    height: 170px;
+}
+
+.CardPurchaseActions {
+    height: auto;
+    width: initial;
+}
+
+.CardPurchaseButton {
+    width: 80%;
+    height: 50px;
+    background-color: rgb(243, 146, 0) !important;
+}

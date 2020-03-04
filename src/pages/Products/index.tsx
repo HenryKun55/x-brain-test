@@ -11,9 +11,11 @@ import Typography from '@material-ui/core/Typography';
 
 import { Product } from '../../types/Product';
 import * as ProductActions from '../../store/ducks/product/actions';
+import * as CartActions from '../../store/ducks/cart/actions';
 import { ApplicationState } from '../../store';
 
 import CardProduct from '../../components/CardProduct';
+import Form from '../../components/Form';
 
 import './styles.css';
 
@@ -22,15 +24,20 @@ interface StateProps {
 }
 
 interface DispatchProps {
+  addProductToCart(product: Product): void;
   getProducts(): void;
 }
 
 type Props = StateProps & DispatchProps
 
-const Products: React.FC<Props> = ({ data, getProducts }) => {
+const Products: React.FC<Props> = ({ data, getProducts, addProductToCart }) => {
   useEffect(() => {
     getProducts();
   }, [getProducts]);
+
+  const handleAddProduct = (product: Product) => {
+    addProductToCart(product);
+  };
 
   return (
     <Container maxWidth="lg">
@@ -41,9 +48,10 @@ const Products: React.FC<Props> = ({ data, getProducts }) => {
           </Typography>
         </Grid>
         {data.map((product, key) => (
-          <CardProduct product={product} keyProduct={key} />
+          <CardProduct product={product} keyProduct={key} key={product.description} add={handleAddProduct} />
         ))}
       </Grid>
+      <Form />
     </Container>
   );
 };
@@ -52,7 +60,7 @@ const mapStateToProps = ({ product }: ApplicationState) => ({
   data: product.data,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(ProductActions, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ ...ProductActions, ...CartActions }, dispatch);
 
 export default connect(
   mapStateToProps,

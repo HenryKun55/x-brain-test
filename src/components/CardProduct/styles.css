@@ -1,9 +1,10 @@
 .MuiCard-root {
     box-shadow: none !important;
+    height: 410px;
 }
 
 .MuiCardMedia-root {
-    height: 68% !important;
+    height: 200px;
     background-size: contain !important;
 }
 
@@ -12,18 +13,19 @@
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.6);
     position: relative !important;
-    transition: bottom 0.2s;
+    transition: bottom 0.3s;
     bottom: 0;
     bottom: 0px !important;
+    height: auto;
 }
 
-.MuiGrid-item :hover>.MuiCardContent-root {
-    bottom: 150px !important;
+.MuiGrid-item *:hover>.MuiCardContent-root {
+    bottom: 100px !important;
 }
 
 .MuiTypography-body1 {
     margin-bottom: 10px;
-    height: 50px !important;
+    height: 50px;
 }
 
 .MuiTypography-body2 {
@@ -32,14 +34,28 @@
     height: 40px;
 }
 
-.MuiTypography-caption {
+.MuiTypography-subtitle1 {
     font-size: 14px !important;
     color: #b4b4b4 !important;
     height: auto;
 }
 
+.MuiTypography-subtitle2 {
+    font-size: 14px !important;
+    color: #b4b4b4 !important;
+    height: 150px;
+    transition: height 0.3s;
+}
+
+.MuiGrid-item :hover>.MuiCardContent-root>.MuiTypography-subtitle2 {
+    height: 50px !important;
+}
+
 .MuiCardActions-root {
     height: 100px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .MuiAvatar-rounded {
@@ -47,9 +63,12 @@
     border-radius: 30px !important;
 }
 
-.MuiTextField-root {
-    height: auto !important;
-    margin: 0 10px !important;
+.MuiInputBase-root.Mui-disabled {
+    width: 50%;
+}
+
+.MuiInputBase-input .Mui-disabled {
+    margin: 0 10px;
 }
 
 .actionAmount {

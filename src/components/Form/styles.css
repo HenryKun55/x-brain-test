@@ -1,0 +1,10 @@
+button[type=submit] {
+    height: 50px;
+    background-color: rgb(243, 146, 0) !important;
+}
+
+.MuiTypography-h5 {
+    font-weight: bold !important;
+    color: #858585 !important;
+    text-align: end;
+}
