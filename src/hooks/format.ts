@@ -1,3 +1,3 @@
-export default function formatPrice(value: number) {
-  return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' });
+export default function formatPrice(value: number | undefined) {
+  return value?.toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' });
 }

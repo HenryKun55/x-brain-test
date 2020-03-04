@@ -2,7 +2,7 @@ import { all, takeLatest } from 'redux-saga/effects';
 
 //  Auth
 import { AuthTypes } from './auth/types';
-import authUser from './auth/sagas';
+import { authUser, removeUser } from './auth/sagas';
 
 // Product
 import { ProductTypes } from './product/types';
@@ -16,6 +16,7 @@ export default function* rootSaga() {
   yield all([
     // Auth
     takeLatest(AuthTypes.AUTH, authUser),
+    takeLatest(AuthTypes.REMOVE_AUTH, removeUser),
 
     // Product
     takeLatest(ProductTypes.GET_PRODUCTS_REQUEST, getProducts),

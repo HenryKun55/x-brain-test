@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import {
   Container,
@@ -11,21 +14,37 @@ import {
   Box,
 } from '@material-ui/core/';
 
-import { useLocation, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { purchase } from '../../assets';
 
 import { formatNumber } from '../../hooks';
 
+import * as AuthActions from '../../store/ducks/auth/actions';
+import { ApplicationState } from '../../store';
+
+import { User } from '../../types/User';
+
 import './styles.css';
 
-type Props = DataCue
+interface PurchasedProps {
+  user: User;
+}
 
-const Purchased: React.FC<Props> = () => {
-  const location = useLocation();
+interface DispatchProps {
+  removeAuth(): void;
+}
+
+type Props = PurchasedProps & DispatchProps
+
+const Purchased: React.FC<Props> = ({ user, removeAuth }) => {
   const history = useHistory();
+  const [finalUser, setFinalUser] = useState<User>();
 
-  const data: any = location.state;
+  useEffect(() => {
+    setFinalUser(user);
+    removeAuth();
+  }, []);
 
   const handleNewPurchase = () => {
     history.push('/');
@@ -38,12 +57,12 @@ const Purchased: React.FC<Props> = () => {
           <CardContent className="CardContentPurchased">
             <Typography color="textPrimary" gutterBottom />
             <Typography variant="h5" component="h2">
-              {data.name}
+              {finalUser?.name}
             </Typography>
             <Typography className="CardContainerText" color="textSecondary">
               Sua compra no valor de
               {' '}
-              <strong style={{ color: '#22a8f7 ' }}>{formatNumber(data.price)}</strong>
+              <strong className="strongValue">{formatNumber(finalUser?.price)}</strong>
               {' '}
               foi finalizada com sucesso
             </Typography>
@@ -64,4 +83,14 @@ const Purchased: React.FC<Props> = () => {
 
   );
 };
-export default Purchased;
+
+const mapStateToProps = ({ auth }: ApplicationState) => ({
+  user: auth.data,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(AuthActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Purchased);

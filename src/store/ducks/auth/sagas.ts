@@ -1,9 +1,11 @@
-import { put } from 'redux-saga/effects';
-import { User } from '../../../types/User';
+import { call } from 'redux-saga/effects';
 
-import auth from './actions';
+import { auth, removeAuth } from './actions';
 
-export default function* authUser(payload: any) {
-  const user: User = payload;
-  yield put(auth(user));
+export function* authUser(payload: any) {
+  yield call(auth, payload);
+}
+
+export function* removeUser() {
+  yield call(removeAuth);
 }

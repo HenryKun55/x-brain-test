@@ -5,9 +5,10 @@ import { User } from '../../../types/User';
  */
 
 export interface AuthState {
-  data?: User;
+  data: User;
 }
 
 export enum AuthTypes {
   AUTH = 'auth/AUTH',
+  REMOVE_AUTH = 'auth/REMOVE_AUTH',
 }

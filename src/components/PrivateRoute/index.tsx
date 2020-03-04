@@ -6,7 +6,7 @@ import {
   RouteProps,
 } from 'react-router-dom';
 
-import isAuth from '../../services/auth';
+import { getStorage } from '../../util';
 
 interface PrivateRouteProps extends RouteProps {
     component: any;
@@ -17,7 +17,7 @@ const PrivateRoute = (props: PrivateRouteProps) => {
   return (
     <Route
       {...rest}
-      render={(routeProps) => (isAuth() ? (
+      render={(routeProps) => (getStorage('@user') ? (
         <Component {...routeProps} />
       ) : (
         <Redirect

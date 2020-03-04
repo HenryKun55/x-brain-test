@@ -8,13 +8,10 @@ import {
 } from 'redux-form';
 
 import { connect } from 'react-redux';
-// import { bindActionCreators, Dispatch } from 'redux';
 
 import {
   TextField, Grid, Typography, Button, Select, MenuItem, FormControl, InputLabel, FormHelperText, Box,
 } from '@material-ui/core';
-
-import { useHistory } from 'react-router-dom';
 
 import {
   getFormItemWidth, useWindowSize, getFormItemSelectWidth, getButtonWidth, getCardItemWidth, formatNumber,
@@ -24,6 +21,7 @@ import {
 import { ApplicationState } from '../../store';
 
 import { Product } from '../../types/Product';
+import { User } from '../../types/User';
 
 import './styles.css';
 
@@ -40,6 +38,7 @@ interface RenderInputProps {
 }
 
 interface FormProps {
+  auth(user: User | undefined): void;
   cart: Product[];
 }
 
@@ -99,15 +98,15 @@ const renderSelect: React.FC<Input> = ({
   </FormControl>
 );
 
-const Form: React.FC<InjectedFormProps & FormProps> = ({ handleSubmit, valid, cart }) => {
-  const history = useHistory();
-
+const Form: React.FC<InjectedFormProps<{}, FormProps> & FormProps > = ({
+  auth, handleSubmit, valid, cart,
+}) => {
   const total = () => cart.filter((item) => item.price).reduce((sum, current) => sum + (current.price * current.amount), 0);
 
   const totalFormat = () => formatNumber(total());
 
   const onSubmit = (data: FormData) => {
-    history.push('/purchased', { ...data, price: total() });
+    auth({ ...data, price: total() });
   };
 
   return (
@@ -183,7 +182,7 @@ const FormForm = connect(
   mapStateToProps,
 )(Form);
 
-export default reduxForm({
+export default reduxForm<{}, FormProps>({
   form: 'UserForm',
   validate,
 })(FormForm);
