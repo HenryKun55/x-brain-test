@@ -19,6 +19,8 @@ const cart: Reducer<CartState> = (state = INITIAL_STATE, action) => {
         return { ...state, data: [...state.data.slice(0, p), update, ...state.data.slice(p + 1)] };
       }
       return { ...state, data: [...state.data, action.payload] };
+    case CartTypes.CLEAR_CART:
+      return { ...state, data: [] };
     default:
       return state;
   }

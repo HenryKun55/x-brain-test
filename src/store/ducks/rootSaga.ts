@@ -10,7 +10,7 @@ import getProducts from './product/sagas';
 
 // Cart
 import { CartTypes } from './cart/types';
-import addToCart from './cart/sagas';
+import { addToCart, clear } from './cart/sagas';
 
 export default function* rootSaga() {
   yield all([
@@ -23,6 +23,7 @@ export default function* rootSaga() {
 
     // Cart
     takeLatest(CartTypes.ADD_TO_CART, addToCart),
+    takeLatest(CartTypes.CLEAR_CART, clear),
 
   ]);
 }

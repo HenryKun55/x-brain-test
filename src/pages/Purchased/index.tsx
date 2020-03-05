@@ -21,6 +21,7 @@ import { purchase } from '../../assets';
 import { formatNumber } from '../../hooks';
 
 import * as AuthActions from '../../store/ducks/auth/actions';
+import * as CartActions from '../../store/ducks/cart/actions';
 import { ApplicationState } from '../../store';
 
 import { User } from '../../types/User';
@@ -33,17 +34,19 @@ interface PurchasedProps {
 
 interface DispatchProps {
   removeAuth(): void;
+  clearCart(): void;
 }
 
 type Props = PurchasedProps & DispatchProps
 
-const Purchased: React.FC<Props> = ({ user, removeAuth }) => {
+const Purchased: React.FC<Props> = ({ user, removeAuth, clearCart }) => {
   const history = useHistory();
   const [finalUser, setFinalUser] = useState<User>();
 
   useEffect(() => {
     setFinalUser(user);
     removeAuth();
+    clearCart();
   }, []);
 
   const handleNewPurchase = () => {
@@ -51,12 +54,12 @@ const Purchased: React.FC<Props> = ({ user, removeAuth }) => {
   };
 
   return (
-    <Box height="100vh">
+    <Box className="BoxPurchased" height="100vh">
       <Container className="ContainerPurchased" maxWidth="xs">
         <Card className="CardPurshased">
           <CardContent className="CardContentPurchased">
-            <Typography color="textPrimary" gutterBottom />
-            <Typography variant="h5" component="h2">
+            <Typography className="CardContainerSpace" color="textPrimary" gutterBottom />
+            <Typography className="CardContainerTitle" variant="h5" component="h2">
               {finalUser?.name}
             </Typography>
             <Typography className="CardContainerText" color="textSecondary">
@@ -88,7 +91,7 @@ const mapStateToProps = ({ auth }: ApplicationState) => ({
   user: auth.data,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(AuthActions, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ ...AuthActions, ...CartActions }, dispatch);
 
 export default connect(
   mapStateToProps,

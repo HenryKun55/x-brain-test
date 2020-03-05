@@ -1,9 +1,13 @@
 import { call } from 'redux-saga/effects';
 import { Product } from '../../../types/Product';
 
-import { addProductToCart } from './actions';
+import { addProductToCart, clearCart } from './actions';
 
-export default function* addToCart(payload: any) {
+export function* addToCart(payload: any) {
   const product: Product = payload;
   yield call(addProductToCart, product);
+}
+
+export function* clear() {
+  yield call(clearCart);
 }

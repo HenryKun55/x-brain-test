@@ -10,4 +10,5 @@ export interface CartState {
 
 export enum CartTypes {
   ADD_TO_CART = 'product/ADD_TO_CART',
+  CLEAR_CART = 'product/CLEAR_CART',
 }

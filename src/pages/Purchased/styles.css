@@ -1,4 +1,4 @@
-.MuiBox-root-2 {
+.BoxPurchased {
     background-color: #ebebeb;
 }
 
@@ -15,6 +15,14 @@
 .CardContentPurchased {
     align-items: center;
     padding: 5px 15px !important;
+}
+
+.CardContainerSpace {
+    height: 30px;
+}
+
+.CardContainerTitle {
+    text-align: center;
 }
 
 .CardContainerText {
