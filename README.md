@@ -19,21 +19,11 @@ Esse é um teste para a empresa X-Brain, e consiste em uma representação de um
 [Json Server](https://github.com/typicode/json-server), 
 
 
-# Instalação
+# ⌨️ Instalação
 
-```
-yarn install
-```
-Vá até a raiz do projeto e execute
-
-```
-yarn json-server --host <SEU_IP> database.json -p 3333
-```
-
-
-No ***.env*** renomeie insira o *<SEU_IP:PORTA>* na variável:
-**REACT_APP_API_LOCAL** 
-
+1. Vá até a raiz do projeto e execute:  ``` yarn install ``` 
+2. Após finalizar, digite: ``` yarn json-server --host <SEU_IP> database.json -p 3333 ```
+3. No ***.env*** renomeie insira o *<SEU_IP:PORTA>* na variável: ``` **REACT_APP_API_LOCAL**  ```
 
 ## 🚀 Prontinho!
 
@@ -42,4 +32,5 @@ Agora só rodar o projeto
 ```
 yarn start
 ```
-# Aproveite :)
+
+# 😍💛 Aproveite :)
