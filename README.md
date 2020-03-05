@@ -2,7 +2,7 @@
 
 Esse é um teste para a empresa X-Brain, e consiste em uma representação de uma e-commerce.
 
-## Bibliotecas Utilizadas
+## 📚 Bibliotecas Utilizadas
 
 
 [Typescript](https://www.typescriptlang.org/), 
