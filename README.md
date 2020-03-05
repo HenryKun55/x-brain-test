@@ -23,7 +23,7 @@ Esse é um teste para a empresa X-Brain, e consiste em uma representação de um
 
 1. Vá até a raiz do projeto e execute:  ``` yarn install ``` 
 2. Após finalizar, digite: ``` yarn json-server --host <SEU_IP> database.json -p 3333 ```
-3. No ***.env*** renomeie insira o *<SEU_IP:PORTA>* na variável: ``` **REACT_APP_API_LOCAL**  ```
+3. No ***.env*** renomeie e insira o *<SEU_IP:PORTA>* na variável: ``` **REACT_APP_API_LOCAL**  ```
 
 ## 🚀 Prontinho!
 
